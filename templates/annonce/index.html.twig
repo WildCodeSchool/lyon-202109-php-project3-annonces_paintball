@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Toutes les Annonces: </h1>
+    {% for annonce in annonces %}
+        <div>
+            <h2>{{ loop.index }} / {{ annonce.titre }} - Catégorie : {{ annonce.categorie.name }}</h2>
+            <p>{{ annonce.description }}</p>
+            <p>{{ annonce.marque }}</p>
+            <p>{{ annonce.modele }}</p>
+            <p>{{ annonce.prix }}</p>
+            <p>{{ annonce.etat }}</p>
+        </div>
+    {% else %}
+        Aucune annonce trouvée.
+    {% endfor %}
+
+{% endblock %}
