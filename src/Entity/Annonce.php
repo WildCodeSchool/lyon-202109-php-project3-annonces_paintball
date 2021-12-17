@@ -6,6 +6,8 @@ use App\Repository\AnnonceRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use phpDocumentor\Reflection\Types\Null_;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity(repositoryClass=AnnonceRepository::class)
@@ -53,17 +55,17 @@ class Annonce
      * @ORM\ManyToOne(targetEntity=Categorie::class, inversedBy="annonces")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $Categorie;
+    private ?Categorie $Categorie;
 
     /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="annonces")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $User;
+    private ?User $User;
 
     public function __construct()
     {
-        $this->categorie = new ArrayCollection();
+        $this->Categorie = new Categorie();
     }
 
     public function getId(): ?int

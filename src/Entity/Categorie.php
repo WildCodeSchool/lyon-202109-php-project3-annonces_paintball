@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Form\AnnonceType;
 use App\Repository\CategorieRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -30,7 +31,7 @@ class Categorie
     /**
      * @ORM\OneToMany(targetEntity=Annonce::class, mappedBy="Categorie")
      */
-    private $annonces;
+    private Collection $annonces;
 
     public function __construct()
     {
