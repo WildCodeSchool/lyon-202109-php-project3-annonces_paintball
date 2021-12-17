@@ -17,37 +17,37 @@ class Annonce
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    private $id;
+    private int $id;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $Marque;
+    private string $Marque;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $Modele;
+    private string $Modele;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $Titre;
+    private string $Titre;
 
     /**
      * @ORM\Column(type="integer")
      */
-    private $Prix;
+    private int $Prix;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $Etat;
+    private string $Etat;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $Description;
+    private string $Description;
 
     /**
      * @ORM\ManyToOne(targetEntity=Categorie::class, inversedBy="annonces")

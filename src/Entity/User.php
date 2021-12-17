@@ -19,12 +19,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    private $id;
+    private int $id;
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
      */
-    private $email;
+    private string $email;
 
     /**
      * @ORM\Column(type="json")
@@ -35,47 +35,47 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @var string The hashed password
      * @ORM\Column(type="string")
      */
-    private $password;
+    private string $password;
 
     /**
      * @ORM\Column(type="string", length=50)
      */
-    private $statut;
+    private string $statut;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $pseudo;
+    private string $pseudo;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $firstname;
+    private string $firstname;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $lastname;
+    private string $lastname;
 
     /**
      * @ORM\Column(type="integer")
      */
-    private $mobile;
+    private int $mobile;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $address;
+    private string $address;
 
     /**
      * @ORM\Column(type="string", length=50)
      */
-    private $sex;
+    private string $sex;
 
     /**
      * @ORM\Column(type="integer")
      */
-    private $dateofbirth;
+    private int $dateofbirth;
 
     /**
      * @ORM\OneToMany(targetEntity=Annonce::class, mappedBy="User")

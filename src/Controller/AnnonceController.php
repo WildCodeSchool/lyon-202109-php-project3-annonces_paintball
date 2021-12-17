@@ -26,7 +26,7 @@ class AnnonceController extends AbstractController
     /**
      * @Route("/annonce/new", name="new")
      */
-    public function new(Request $request, UserRepository $userRepository) : Response
+    public function new(Request $request, UserRepository $userRepository): Response
     {
         // Create a new Annonce Object
         $annonce = new Annonce();
@@ -35,11 +35,11 @@ class AnnonceController extends AbstractController
         // Get data from HTTP request
         $form->handleRequest($request);
          // Was the form submitted ?
-         if ($form->isSubmitted() && $form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid()) {
             // Deal with the submitted data
-            // Get the Entity Manager 
+            // Get the Entity Manager
             $user = $userRepository->find(1);
-            $annonce->setUser($user); 
+            $annonce->setUser($user);
 
             $entityManager = $this->getDoctrine()->getManager();
             // Persist Annonce Object
@@ -47,16 +47,10 @@ class AnnonceController extends AbstractController
             // Flush the persisted object
             $entityManager->flush();
             // Finally redirect to annonce list
-          return $this->redirectToRoute('annonce_index');
-         }
+            return $this->redirectToRoute('annonce_index');
+        }
         return $this->render('annonce/new.html.twig', [
             "form" => $form->createView(),
         ]);
     }
-
-
-
-
-
-
 }

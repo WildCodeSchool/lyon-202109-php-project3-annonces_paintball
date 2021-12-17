@@ -8,7 +8,7 @@ use Doctrine\Persistence\ObjectManager;
 
 class CategorieFixture extends Fixture
 {
-    const CATEGORIES = [
+    public const CATEGORIES = [
         'Accessoires pour lanceurs',
         'Air comprimé et CO2',
         'Bagages et housses',
@@ -29,14 +29,12 @@ class CategorieFixture extends Fixture
 
     public function load(ObjectManager $manager)
     {
-       foreach(self::CATEGORIES as $key => $categorieName) {
-
-        $categorie = new Categorie();
-        $categorie->setName($categorieName);
-
-        $manager->persist($categorie);
-        $this->addReference('category_' . $key, $categorie);
-       }
-       $manager->flush();
+        foreach (self::CATEGORIES as $key => $categorieName) {
+            $categorie = new Categorie();
+            $categorie->setName($categorieName);
+            $manager->persist($categorie);
+            $this->addReference('category_' . $key, $categorie);
+        }
+        $manager->flush();
     }
 }
