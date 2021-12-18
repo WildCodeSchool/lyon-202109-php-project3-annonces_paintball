@@ -24,48 +24,48 @@ class Annonce
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private string $Marque;
+    private string $marque;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private string $Modele;
+    private string $modele;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private string $Titre;
+    private string $titre;
 
     /**
      * @ORM\Column(type="integer")
      */
-    private int $Prix;
+    private int $prix;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private string $Etat;
+    private string $etat;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private string $Description;
+    private string $description;
 
     /**
      * @ORM\ManyToOne(targetEntity=Categorie::class, inversedBy="annonces")
      * @ORM\JoinColumn(nullable=false)
      */
-    private ?Categorie $Categorie;
+    private ?Categorie $categorie;
 
     /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="annonces")
      * @ORM\JoinColumn(nullable=false)
      */
-    private ?User $User;
+    private ?User $user;
 
     public function __construct()
     {
-        $this->Categorie = new Categorie();
+        $this->categorie = new Categorie();
     }
 
     public function getId(): ?int
@@ -75,84 +75,84 @@ class Annonce
 
     public function getMarque(): ?string
     {
-        return $this->Marque;
+        return $this->marque;
     }
 
-    public function setMarque(string $Marque): self
+    public function setMarque(string $marque): self
     {
-        $this->Marque = $Marque;
+        $this->marque = $marque;
 
         return $this;
     }
 
     public function getModele(): ?string
     {
-        return $this->Modele;
+        return $this->modele;
     }
 
-    public function setModele(string $Modele): self
+    public function setModele(string $modele): self
     {
-        $this->Modele = $Modele;
+        $this->modele = $modele;
 
         return $this;
     }
 
     public function getTitre(): ?string
     {
-        return $this->Titre;
+        return $this->titre;
     }
 
-    public function setTitre(string $Titre): self
+    public function setTitre(string $titre): self
     {
-        $this->Titre = $Titre;
+        $this->titre = $titre;
 
         return $this;
     }
 
     public function getPrix(): ?int
     {
-        return $this->Prix;
+        return $this->prix;
     }
 
-    public function setPrix(int $Prix): self
+    public function setPrix(int $prix): self
     {
-        $this->Prix = $Prix;
+        $this->prix = $prix;
 
         return $this;
     }
 
     public function getEtat(): ?string
     {
-        return $this->Etat;
+        return $this->etat;
     }
 
-    public function setEtat(string $Etat): self
+    public function setEtat(string $etat): self
     {
-        $this->Etat = $Etat;
+        $this->etat = $etat;
 
         return $this;
     }
 
     public function getDescription(): ?string
     {
-        return $this->Description;
+        return $this->description;
     }
 
-    public function setDescription(string $Description): self
+    public function setDescription(string $description): self
     {
-        $this->Description = $Description;
+        $this->description = $description;
 
         return $this;
     }
 
     public function getCategorie(): ?Categorie
     {
-        return $this->Categorie;
+        return $this->categorie;
     }
 
-    public function setCategorie(?Categorie $Categorie): self
+    public function setCategorie(?Categorie $categorie): self
     {
-        $this->Categorie = $Categorie;
+        $this->categorie = $categorie;
 
         return $this;
     }
@@ -162,9 +162,9 @@ class Annonce
         return $this->User;
     }
 
-    public function setUser(?User $User): self
+    public function setUser(?User $user): self
     {
-        $this->User = $User;
+        $this->user = $user;
 
         return $this;
     }
