@@ -1,2 +1,9 @@
-$wild-color: #ff6c71;
-$light: #fffbfb;
+$blue: #22217c;
+$light: #d4d4d4;
+$red: #bb1919cb;
+
+$theme-colors: (
+    'blue': $blue, 
+    'light' : $light,
+    'red' : $red 
+);

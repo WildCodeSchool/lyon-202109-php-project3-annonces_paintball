@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello Annonces!{% endblock %}
+
+{% block body %}
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-red">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Annonces Paintball</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Annonces</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Déposer une annonce
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#">Je veux acheter</a></li>
+            <li><a class="dropdown-item" href="#">Je veux vendre</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled">La communauté</a>
+        </li>
+      </ul>
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+<main class = "container-fluid">
+    <div class ="row col-6">
+      <img src ="/build/images/ "{{ photos }}"" class="rounded float-start" width="300" height="400" alt="Image-Article">
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Francise</h5>
+        <p class="card-text"> 10 annonces</p>
+        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      </div>
+      <section class = "container-fluid" width="353" height="323">
+        <div class = "row col-4">
+          <div class="profile col-6">
+            <img src ="/build/images/Profil.jpg" class="thumbnail col-6" width="64" height="64" alt="img-profile">
+             <p> Francise </p>
+             <p> 10 annonces </p>
+             <p> Notation </p>
+        </div>
+      </section>
+</main>
+
+{% endblock %}
