@@ -63,10 +63,6 @@ class Annonce
      */
     private ?User $user;
 
-    public function __construct()
-    {
-        $this->categorie = new Categorie();
-    }
 
     public function getId(): ?int
     {

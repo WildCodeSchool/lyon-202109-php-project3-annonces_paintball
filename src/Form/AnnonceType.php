@@ -16,13 +16,13 @@ class AnnonceType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('Categorie', null, ['choice_label' => 'name'])
-            ->add('Marque', TextType::class)
-            ->add('Modele', TextType::class)
-            ->add('Titre', TextType::class)
-            ->add('Prix')
-            ->add('Etat')
-            ->add('Description', TextareaType::class)
+            ->add('categorie', EntityType::class, ['class' => Categorie::class, 'choice_label' => 'name'])
+            ->add('marque', TextType::class)
+            ->add('modele', TextType::class)
+            ->add('titre', TextType::class)
+            ->add('prix')
+            ->add('etat')
+            ->add('description', TextareaType::class)
         ;
     }
 
