@@ -23,7 +23,7 @@ class AdvertController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="show", requirement={"id"="\d+"})
+     * @Route("/{id}", name="show", requirements={"id"="\d+"})
      */
     public function advertShow(Advert $advert): Response
     {

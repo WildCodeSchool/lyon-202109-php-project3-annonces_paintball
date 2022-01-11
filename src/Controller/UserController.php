@@ -43,7 +43,7 @@ class UserController extends AbstractController
     }
 
     /**
-     * @Route("/advert/{id}/edit", name="advertEdit", requirement={"id"="\d+"})
+     * @Route("/advert/{id}/edit", name="advertEdit", requirements={"id"="\d+"})
      */
     public function editUserAdvert(Advert $advert): Response
     {
