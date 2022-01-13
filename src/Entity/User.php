@@ -310,7 +310,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         }
 
         // set the owning side of the relation if necessary
-        if ($photo !== null && $photo->getUser() !== $this) {
+        if ($photo !== null) {
             $photo->setUser($this);
         }
 
