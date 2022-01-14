@@ -31,7 +31,7 @@ class AdvertController extends AbstractController
      */
     public function advertShow(Advert $advert): Response
     {
-        
+
         return $this->render('advert/index.html.twig', [
             'advert' => $advert,
         ]);
