@@ -71,6 +71,11 @@ class Advert
      */
     private ?User $owner;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $category;
+
     public function __construct()
     {
         $this->photos = new ArrayCollection();
@@ -215,6 +220,18 @@ class Advert
     public function setOwner(?User $owner): self
     {
         $this->owner = $owner;
+
+        return $this;
+    }
+
+    public function getCategory(): ?string
+    {
+        return $this->category;
+    }
+
+    public function setCategory(string $category): self
+    {
+        $this->category = $category;
 
         return $this;
     }
