@@ -3,6 +3,8 @@
 namespace App\Controller;
 
 use App\Entity\Advert;
+use App\Entity\User;
+use Doctrine\ORM\Mapping\Id;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -17,6 +19,8 @@ class AdvertController extends AbstractController
      */
     public function advertAdd(): Response
     {
+
+
         return $this->render('advert/index.html.twig', [
             'controller_name' => 'AdvertController',
         ]);
@@ -27,6 +31,7 @@ class AdvertController extends AbstractController
      */
     public function advertShow(Advert $advert): Response
     {
+        
         return $this->render('advert/index.html.twig', [
             'advert' => $advert,
         ]);

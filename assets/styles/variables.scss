@@ -1,2 +1,22 @@
-$wild-color: #ff6c71;
-$light: #fffbfb;
+$blue: #0aa1f8a9;
+$light: #d4d4d4;
+$red: #c72115;
+$white: #f1f1f1;
+$btwo:#bbdfee;
+
+$theme-colors: (
+    'blue': $blue, 
+    'light' : $light,
+    'red' : $red,
+    'white': $white,
+    'bluecard': $btwo
+);
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px
+);

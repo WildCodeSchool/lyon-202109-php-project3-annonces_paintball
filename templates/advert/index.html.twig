@@ -1,20 +1,109 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello AdvertController!{% endblock %}
+{% block title %}Annonce{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/dev/projects/annonces_paintball/src/Controller/AdvertController.php'|file_link(0) }}">src/Controller/AdvertController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/dev/projects/annonces_paintball/templates/advert/index.html.twig'|file_link(0) }}">templates/advert/index.html.twig</a></code></li>
-    </ul>
-</div>
+<main class = "container-fluid border">
+    <div class ="row">
+      <div class= "col-8">
+        <img src="" class="rounded float-start  col-xs-12" width="500" height="400" alt="Image-Article">
+      </div>
+      <div class="card-body col-4 border bg-bluecard">
+        <section class= "container-fluid" width="353" height="323">
+          <div class= "row">
+            <div class= "col-6">
+                <img src= "/build/images/Profil.jpg" class="thumbnail rounded mx-auto d-block" width="64" height="64" alt="img-profile">
+            </div>
+            <div class= "col-6 text-black">
+              <p> Francise Duchaine </p>
+              <cite>
+                <p> 10 annonces </p>
+              </cite>
+          </div>
+          <div class="row">
+            <div class="col-8 text-black">
+              <p>Notation 3,9/5</p>
+            </div>
+            <div class="col-4 text-black">
+              <p> (423)</p>
+            </div>
+          </div>
+          <div class="row">
+              <a href="#" class="col btn border btn-danger text-black">Voir son profil</a>
+          </div>
+            <div class= "container">
+                <div class= "row">
+                  <div class= "col-12 text-black">
+                      <p>
+                    Mail en journée pour plus de rapidité
+                         ou sms sinon sans problèmes </p>
+                  </div>
+                <HR>
+                </div>
+            </div>
+                <div class= "row">
+                    <a href="#" class="col border btn btn-white text-black">Contacter</a>
+                </div>
+              </div>
+        </section>
+      </div>
+      <section class="container-fluid text-black">
+        <div class="row">
+          <div class="col-12">
+            <h2>{{ advert.title }} d'occassion</h2>
+            <cite> Prix: {{ advert.price }} € </cite>
+          </div>
+          <div class="col-6">
+            <p>Annonce parue le 02/12/2021 14:36</p>
+          </div>
+          <div class="col-6">
+            <p>Dernière mise à jour le 02/01/2022 12:30</p>
+          </div>
+          <hr>
+          <br><br>
+          <br><br>
+          <hr>
+          <div class="col-6">
+            <p>Marque: {{ advert.brand }}</p>
+          </div>
+          <div class="col-6">
+            <p>Modèle: Lanceur WGP</p>
+          </div>
+          <div class="col-12">
+            <p></p>
+          </div>
+          <div class="col-6">
+            <p>58 visites</p>
+          </div>
+          <div class="col-12">
+            <p>Description: {{ advert.description }}</p>
+          </div>
+          <hr>
+          <div class="col-12">
+            <p>Critères</p>
+            <cite>Etat</cite>
+            <p>Très bon états</p>
+          </div>
+          <hr>
+          <div class="col-6">
+            <a href="#" class="btn btn-primary col-xs-3">Signaler l'annonce</a>
+          </div>
+          <hr>
+          <br>
+        <div class="row card">
+            <div class="card-header col-2">
+                <img src= "/build/images/Profil.jpg" class="thumbnail rounded mx-auto d-block" width="64" height="64" alt="img-profile">
+            </div>
+            <div class="card-body">
+                <h5 class="card-title col-xs-3"></h5>
+                <p class="card-text col-xs-3">10 annonces</p>
+                <cite class="col-3">
+                    <p> Membre depuis 11/12/2021</p>
+                </cite>
+                <a href="#" class="btn btn-primary col-xs-3">Suivre</a>
+            </div>
+        </div>
+    </div>
+  <section>
+</main>
 {% endblock %}
