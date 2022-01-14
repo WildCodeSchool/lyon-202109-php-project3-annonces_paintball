@@ -9,6 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Form\AdvertType;
 use App\Repository\UserRepository;
 use Symfony\Component\HttpFoundation\Request;
+
 /**
  * @Route("/advert", name="advert_")
  */
@@ -39,7 +40,7 @@ class AdvertController extends AbstractController
             // Deal with the submitted data
             // Get the Entity Manager
             $user = $userRepository->find(1);
-            $advert->setUser($user);
+            $advert->setOwner($user);
 
             $entityManager = $this->getDoctrine()->getManager();
             // Persist Annonce Object

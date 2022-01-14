@@ -17,7 +17,7 @@ class AdvertType extends AbstractType
         $builder
             ->add('title', TextType::class)
             ->add('category', ChoiceType::class, ['choices' => [
-                'Accessoires pour lanceurs'=> true,
+                'Accessoires pour lanceurs' => true,
                 'Air comprimé et CO2' => true,
                 'Bagages et housses' => true,
                 'Canons' => true,
@@ -45,7 +45,7 @@ class AdvertType extends AbstractType
                 'Très bon état' => true,
                 'Bon état' => true,
                 'Satisfaisant' => true,
-                'Pour pièces'=> true,]])
+                'Pour pièces' => true,]])
             ->add('owner')
         ;
     }

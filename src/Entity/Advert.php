@@ -74,7 +74,7 @@ class Advert
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $category;
+    private string $category;
 
     public function __construct()
     {
