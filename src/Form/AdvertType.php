@@ -3,6 +3,8 @@
 namespace App\Form;
 
 use App\Entity\Advert;
+use App\Entity\User;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Proxies\__CG__\App\Entity\Category;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -46,7 +48,12 @@ class AdvertType extends AbstractType
                 'Bon état' => true,
                 'Satisfaisant' => true,
                 'Pour pièces' => true,]])
-            ->add('owner')
+            ->add('owner', EntityType::class, [
+                'class' => User::class,
+                'choice_label' => 'username',
+                'multiple' => false,
+                'expanded' => false,
+            ]);
         ;
     }
 
