@@ -76,6 +76,33 @@ class Advert
      */
     private string $category;
 
+    public static array $CATEGORIES = [
+        'Accessoires pour lanceurs',
+        'Air comprimé et CO2',
+        'Bagages et housses',
+        'Canons',
+        'Covoiturage',
+        'Divers',
+        'Kits et packages',
+        'Lanceurs de scénario',
+        'Lanceur de compétition',
+        'Lanceurs de loisir',
+        'Loaders et accessoires',
+        'Masques et écrans',
+        'Recrutements',
+        'Tournois',
+        'Terrains et accessoires',
+        'Vetements de jeu',
+    ];
+
+    public static array $USECONDITIONS = [
+        'Neuf',
+        'Très bon état',
+        'Bon état',
+        'Satisfaisant',
+        'Pour pièces',
+    ];
+
     public function __construct()
     {
         $this->photos = new ArrayCollection();
