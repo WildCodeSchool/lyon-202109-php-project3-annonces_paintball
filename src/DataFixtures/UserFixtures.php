@@ -12,7 +12,7 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 class UserFixtures extends Fixture
 {
     private UserPasswordHasherInterface $userPasswordHasher;
-    private const NB_OF_USERS = 10;
+    public const NB_OF_USERS = 30;
 
     public function __construct(UserPasswordHasherInterface $userPasswordHasher)
     {
@@ -41,6 +41,7 @@ class UserFixtures extends Fixture
             $user->setPhoto((new Photo())->setUrl('https://i.pravatar.cc/200?img=' . $i));
 
             $manager->persist($user);
+            $this->addReference('user_' . $i, $user);
         }
 
         $manager->flush();
