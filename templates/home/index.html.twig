@@ -1,70 +1,62 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Home{% endblock %}
-
-{% block stylesheets %}
-{{ parent() }}
-
+{% block title %}Home
 {% endblock %}
 
 {% block body %}
-<form  action="" method="post">
-<div class="container">
-				<label for="categories-select">Selectionner une Catégorie :</label>
+	<form action="" method="post">
+		<div class="container">
+			<label for="categories-select">Selectionner une Catégorie :</label>
 
-				<select name="categories" id="categories-select" class="form-control mb-3"
+			<selectAccessoiresAirBagagesCanons</option name="categories" id="categories-select" class="form-control mb-3" <option value="Accessoires pour lanceurs"> pour lanceurs</option> <option value="Air comprimé et CO2"> comprimé et co2</option> <option value="Bagages et housses"> et housses</option> <option value="Canons">>
+				<option value="Divers">Divers</option>
+				<option value="Kits et packages">Kits et packages</option>
+				<option value="Lanceurs de scénario">Lanceurs de scénario</option>
+				<option value="Lanceur de compétition">Lanceur de compétition</option>
+				<option value="Lanceurs de loisir">Lanceurs de loisir</option>
+				<option value="Loaders et accessoires">Loaders et accessoires</option>
+				<option value="Masques et écrans">Masques et écrans</option>
+				<option value="Recrutements">Recrutements</option>
+				<option value="Tournois">Tournois</option>
+				<option value="Terrains et accessoires">Terrains et accessoires</option>
+				<option value="Vetements de jeu">Vetements de jeu</option>
+			</select>
+		</div>
 
- <option value="Accessoires pour lanceurs">Accessoires pour lanceurs</option>
-                <option value="Air comprimé et CO2">Air comprimé et CO2</option>
-                <option value="Bagages et housses">Bagages et housses</option>
-                <option value="Canons">Canons</option>
-                <option value="Divers">Divers</option>
-                <option value="Kits et packages">Kits et packages</option>
-                <option value="Lanceurs de scénario">Lanceurs de scénario</option>
-                <option value="Lanceur de compétition">Lanceur de compétition</option>
-                <option value="Lanceurs de loisir">Lanceurs de loisir</option>
-                <option value="Loaders et accessoires">Loaders et accessoires</option>
-                <option value="Masques et écrans">Masques et écrans</option>
-                <option value="Recrutements">Recrutements</option>
-                <option value="Tournois">Tournois</option>
-                <option value="Terrains et accessoires">Terrains et accessoires</option>
-                <option value="Vetements de jeu">Vetements de jeu</option>
-                </select>
-			</div>
+		<div class="container">
+			<label for="marque">
+				Marque :</label>
+			<input type="text" name="marque" class="form-control mb-3">
+		</div>
 
-<div class="container">
-				<label for="marque"> Marque :</label>
-				<input type="text" name="marque" class="form-control mb-3">
-			</div>
+		<div class="container">
+			<label for="region-select">Selectionner une Région :</label>
 
-			<div class="container">
-				<label for="region-select">Selectionner une Région :</label>
+			<select name="region" id="region-select" class="form-control mb-3">
 
-				<select name="region" id="region-select" class="form-control mb-3">
-                
-                <option value="Auvergne-Rhône-Alpes">Auvergne-Rhône-Alpes</option>
-                <option value="Bourgogne-Franche-Comté">Bourgogne-Franche-Comté</option>
-                <option value="Bretagne">Bretagne</option>
-                <option value="Centre-Val de Loire">Centre-Val de Loire</option>
-                <option value="Corse">Corse</option>
-                <option value="Grand Est">Grand Est</option>
-                <option value="Hauts-de-France">Hauts-de-France</option>
-                <option value="Ile-de-France">Ile-de-France</option>
-                <option value="Normandie">Normandie</option>
-                <option value="Nouvelle-Aquitaine">Nouvelle-Aquitaine</option>
-                <option value="Occitanie">Occitanie</option>
-                <option value="Pays de la Loire">Pays de la Loire</option>
-                <option value="Provence-Alpes-Côte d’Azur">Provence-Alpes-Côte d’Azur</option>
-                </select>
-			</div>
+				<option value="Auvergne-Rhône-Alpes">Auvergne-Rhône-Alpes</option>
+				<option value="Bourgogne-Franche-Comté">Bourgogne-Franche-Comté</option>
+				<option value="Bretagne">Bretagne</option>
+				<option value="Centre-Val de Loire">Centre-Val de Loire</option>
+				<option value="Corse">Corse</option>
+				<option value="Grand Est">Grand Est</option>
+				<option value="Hauts-de-France">Hauts-de-France</option>
+				<option value="Ile-de-France">Ile-de-France</option>
+				<option value="Normandie">Normandie</option>
+				<option value="Nouvelle-Aquitaine">Nouvelle-Aquitaine</option>
+				<option value="Occitanie">Occitanie</option>
+				<option value="Pays de la Loire">Pays de la Loire</option>
+				<option value="Provence-Alpes-Côte d’Azur">Provence-Alpes-Côte d’Azur</option>
+			</select>
+		</div>
 
-			<div class="container">
-				<label for="mot-clés">Mot-clés :</label>
-				<input type="search" name="mot-cles" class="form-control mb-3">
-			</div>
+		<div class="container">
+			<label for="mot-clés">Mot-clés :</label>
+			<input type="search" name="mot-cles" class="form-control mb-3">
+		</div>
 
-			<div class="container d-flex flex-column align-items-center">
-				<input type="submit" value="Rechercher" class="btn btn-primary mb-2">
-			</div>
-		</form>
+		<div class="container d-flex flex-column align-items-center">
+			<input type="submit" value="Rechercher" class="btn btn-primary mb-2">
+		</div>
+	</form>
 {% endblock %}
