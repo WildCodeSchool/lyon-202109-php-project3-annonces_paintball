@@ -13,6 +13,7 @@ use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use DateTime;
 
 /**
  * @Route("/advert", name="advert_")
@@ -38,6 +39,8 @@ class AdvertController extends AbstractController
         EntityManagerInterface $entityManager
     ): Response {
         $advert = new Advert();
+        $advert->setCreationDate(new DateTime());
+        $advert->setEndDate(new DateTime('2022-02-19'));
         $form = $this->createForm(AdvertType::class, $advert);
         $form->handleRequest($request);
 
