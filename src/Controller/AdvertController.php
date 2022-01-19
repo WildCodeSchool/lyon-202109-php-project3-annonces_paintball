@@ -7,8 +7,12 @@ use phpDocumentor\Reflection\Types\Void_;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Mailer\MailerInterface;
-use Symfony\Component\Mime\Email;
+use App\Form\AdvertType;
+use App\Repository\UserRepository;
+use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
  * @Route("/advert", name="advert_")
@@ -24,7 +28,32 @@ class AdvertController extends AbstractController
             'controller_name' => 'AdvertController',
         ]);
     }
+/**
+     * @Route("/new", name="new")
+     * @IsGranted("ROLE_USER")
+     */
+    public function new(
+        Request $request,
+        UserRepository $userRepository,
+        EntityManagerInterface $entityManager
+    ): Response {
+        $advert = new Advert();
+        $form = $this->createForm(AdvertType::class, $advert);
+        $form->handleRequest($request);
 
+        if ($form->isSubmitted() && $form->isValid()) {
+            $user = $this->getUser();
+            $advert->setOwner($user);/**@phpstan-ignore-line */
+
+            $entityManager->persist($advert);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('advert_add');
+        }
+        return $this->render('advert/new.html.twig', [
+            "form" => $form->createView(),
+        ]);
+    }
     /**
      * @Route("/{id}", name="show", requirements={"id"="\d+"})
      */
@@ -41,19 +70,5 @@ class AdvertController extends AbstractController
     public function advertSearch(): Response
     {
         return $this->render('advert/index.html.twig', []);
-    }
-
-    /**
-     * @Route("/contactseller", name="contactseller")
-     */
-    public function sendEmail(MailerInterface $mailer): void
-    {
-        $email = (new Email())
-            ->from('noreply@annoncespaintball.com')
-            ->to('sender@demo.com')
-            ->subject('Une personne est intéressée par votre annonce sur Annonces Paintball')
-            ->html('<p>Une personne est intéressée par votre annonce sur Annonces Paintball</p>');
-
-        $mailer->send($email);
     }
 }

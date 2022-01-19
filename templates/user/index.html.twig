@@ -1,20 +1,33 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello UserController!{% endblock %}
+{% block title %}Mon profil{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/dev/projects/annonces_paintball/src/Controller/UserController.php'|file_link(0) }}">src/Controller/UserController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/dev/projects/annonces_paintball/templates/user/index.html.twig'|file_link(0) }}">templates/user/index.html.twig</a></code></li>
-    </ul>
-</div>
+    <main class="container px-4 fill">
+        <h1 class="display-4 fw-normal">Mes informations personnelles</h1>
+        <hr>
+        <div class="row gy-5">
+            <div class="col-12">
+                <img class="img-fluid rounded" src="{{ user.photo.url }}">
+            </div>
+            <div class="col-md-6">
+                <div class="p-3 border bg-light">Nom : <span class="fw-bold">{{ user.lastname }}</span></div>
+            </div>
+            <div class="col-md-6">
+                <div class="p-3 border bg-light">Prénom : <span class="fw-bold">{{ user.firstname }}</span></div>
+            </div>
+             <div class="col-md-6">
+                <div class="p-3 border bg-light">Pseudo : <span class="fw-bold">{{ user.pseudo }}</span></div>
+            </div>
+            <div class="col-md-6">
+                <div class="p-3 border bg-light">Email : <span class="fw-bold">{{ user.email }}</span></div>
+            </div>
+             <div class="col-md-6">
+                <div class="p-3 border bg-light">Date de naissance : <span class="fw-bold">{{ user.birthdate|date("d/m/Y") }}</span></div>
+            </div>
+            <div class="col-md-6">
+                <div class="p-3 border bg-light">Code postal : <span class="fw-bold">{{ user.postalCode }}</span></div>
+            </div>
+        </div>
+    </main>
 {% endblock %}

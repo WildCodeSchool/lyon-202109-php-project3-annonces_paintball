@@ -17,9 +17,14 @@ class UserController extends AbstractController
      */
     public function profile(): Response
     {
-        return $this->render('user/index.html.twig', [
-            'controller_name' => 'UserController',
-        ]);
+        $user = $this->getUser();
+        if ($user) {
+            return $this->render('user/index.html.twig', [
+                'user' => $user,
+            ]);
+        }
+
+        return $this->redirectToRoute('home');
     }
 
     /**
