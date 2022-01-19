@@ -8,7 +8,10 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Form\AdvertType;
 use App\Repository\UserRepository;
+use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
  * @Route("/advert", name="advert_")
@@ -26,28 +29,24 @@ class AdvertController extends AbstractController
     }
 /**
      * @Route("/new", name="new")
+     * @IsGranted("ROLE_USER")
      */
-    public function new(Request $request, UserRepository $userRepository): Response
-    {
-        // Create a new Annonce Object
+    public function new(
+        Request $request,
+        UserRepository $userRepository,
+        EntityManagerInterface $entityManager
+    ): Response {
         $advert = new Advert();
-        // Create the associated Form
         $form = $this->createForm(AdvertType::class, $advert);
-        // Get data from HTTP request
         $form->handleRequest($request);
-         // Was the form submitted ?
-        if ($form->isSubmitted() && $form->isValid()) {
-            // Deal with the submitted data
-            // Get the Entity Manager
-            $user = $userRepository->find(1);
-            $advert->setOwner($user);
 
-            $entityManager = $this->getDoctrine()->getManager();
-            // Persist Annonce Object
+        if ($form->isSubmitted() && $form->isValid()) {
+            $user = $this->getUser();
+            $advert->setOwner($user);/**@phpstan-ignore-line */
+
             $entityManager->persist($advert);
-            // Flush the persisted object
             $entityManager->flush();
-            // Finally redirect to annonce list
+
             return $this->redirectToRoute('advert_add');
         }
         return $this->render('advert/new.html.twig', [
