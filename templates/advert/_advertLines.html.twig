@@ -1,0 +1,9 @@
+{% for advert in adverts %}
+    <tr>
+        <th>{{ advert.status }}</th>
+        <td>{{ advert.title }}</td>
+        <td>{{ advert.creationDate|date('d/m/Y') }}</td>
+        <td>{{ advert.endDate|date('d/m/Y') }}</td>
+        <td>{{ advert.price }}</td>
+    </tr>
+{% endfor %}

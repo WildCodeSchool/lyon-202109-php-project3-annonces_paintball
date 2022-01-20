@@ -103,6 +103,17 @@ class Advert
         'Pour pièces',
     ];
 
+    public static array $STATUS = [
+        "En cours",
+        "Vendues",
+        "Abandonnées",
+    ];
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private string $status;
+
     public function __construct()
     {
         $this->photos = new ArrayCollection();
@@ -259,6 +270,18 @@ class Advert
     public function setCategory(string $category): self
     {
         $this->category = $category;
+
+        return $this;
+    }
+
+    public function getStatus(): ?string
+    {
+        return $this->status;
+    }
+
+    public function setStatus(string $status): self
+    {
+        $this->status = $status;
 
         return $this;
     }

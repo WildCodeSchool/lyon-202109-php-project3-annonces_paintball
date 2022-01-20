@@ -16,10 +16,11 @@ class AdvertFixtures extends Fixture implements DependentFixtureInterface
 
         $categories = Advert::$CATEGORIES;
         $conditions = Advert::$USECONDITIONS;
+        $listOfStatus = Advert::$STATUS;
 
         for ($i = 0; $i < UserFixtures::NB_OF_USERS; $i++) {
             $user = $this->getReference('user_' . $i);
-            $nbAdverts = rand(0, 30);
+            $nbAdverts = rand(0, 40);
             for ($j = 0; $j < $nbAdverts; $j++) {
                 $advert = new Advert();
                 $advert->setTitle($faker->sentence())
@@ -31,6 +32,7 @@ class AdvertFixtures extends Fixture implements DependentFixtureInterface
                 ->setBrand($faker->word())
                 ->setCategory($categories[array_rand($categories)])
                 ->setUseCondition($conditions[array_rand($conditions)])
+                ->setStatus($listOfStatus[array_rand($listOfStatus)])
                 ->setOwner($user)
                 ;
 
