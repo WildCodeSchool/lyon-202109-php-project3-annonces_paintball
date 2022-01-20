@@ -14,13 +14,13 @@ class Emailer
         $this->mailer = $mailer;
     }
 
-    public function sendMail(): void
+    public function sendMail(string $recipient, string $message, string $contactmail): void
     {
         $email = (new Email())
             ->from('noreply@annoncespaintball.com')
-            ->to('sender@demo.com')
+            ->to($recipient)
             ->subject('Une personne est intéressée par votre annonce sur Annonces Paintball')
-            ->html('<p>Une personne est intéressée par votre annonce sur Annonces Paintball</p>');
+            ->html('<p>' . $message . $contactmail . '</p>');
 
         $this->mailer->send($email);
     }
