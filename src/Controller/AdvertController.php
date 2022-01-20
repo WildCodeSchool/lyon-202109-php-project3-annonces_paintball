@@ -14,6 +14,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use DateTime;
+use DateTimeInterface;
 
 /**
  * @Route("/advert", name="advert_")
@@ -40,7 +41,10 @@ class AdvertController extends AbstractController
     ): Response {
         $advert = new Advert();
         $advert->setCreationDate(new DateTime());
-        $advert->setEndDate(new DateTime('2022-02-19'));
+        $expirationDate = date_add(new DateTime(), date_interval_create_from_date_string('30 days'));
+        if ($expirationDate) {
+            $advert->setEndDate($expirationDate);
+        }
         $form = $this->createForm(AdvertType::class, $advert);
         $form->handleRequest($request);
 

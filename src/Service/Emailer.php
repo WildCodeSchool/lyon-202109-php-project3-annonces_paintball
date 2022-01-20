@@ -11,9 +11,9 @@ class Emailer
 
     public function __construct(MailerInterface $mailer)
     {
-        $this->MailerInterface = $mailer;
+        $this->mailer = $mailer;
     }
-    
+
     public function sendMail(): void
     {
         $email = (new Email())
