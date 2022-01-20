@@ -12,3 +12,20 @@ import './styles/app.scss';
 import './bootstrap';
 
 require('bootstrap');
+
+function loadAdvertsForProfile() {
+    const tableBody = document.getElementById('advert_list');
+    const status = document.getElementById('advert_filter').value;
+
+    fetch(`/user/profile/adverts/${status}`)
+        .then((request) => request.text())
+        .then((bodyContent) => {
+            tableBody.innerHTML = bodyContent;
+        });
+}
+
+loadAdvertsForProfile();
+
+document.getElementById('advert_filter').addEventListener('change', (e) => {
+    loadAdvertsForProfile();
+});
