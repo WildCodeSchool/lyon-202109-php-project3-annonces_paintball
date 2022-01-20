@@ -6,28 +6,57 @@
     <main class="container px-4 fill">
         <h1 class="display-4 fw-normal">Mes informations personnelles</h1>
         <hr>
-        <div class="row gy-5">
-            <div class="col-12">
-                <img class="img-fluid rounded" src="{{ user.photo.url }}">
+        <section id="user_infos">
+            <div class="row gy-5">
+                <div class="col-12">
+                    <img class="img-fluid rounded" src="{{ user.photo.url }}">
+                </div>
+                <div class="col-md-6">
+                    <div class="p-3 border bg-light">Nom : <span class="fw-bold">{{ user.lastname }}</span></div>
+                </div>
+                <div class="col-md-6">
+                    <div class="p-3 border bg-light">Prénom : <span class="fw-bold">{{ user.firstname }}</span></div>
+                </div>
+                <div class="col-md-6">
+                    <div class="p-3 border bg-light">Pseudo : <span class="fw-bold">{{ user.pseudo }}</span></div>
+                </div>
+                <div class="col-md-6">
+                    <div class="p-3 border bg-light">Email : <span class="fw-bold">{{ user.email }}</span></div>
+                </div>
+                <div class="col-md-6">
+                    <div class="p-3 border bg-light">Date de naissance : <span class="fw-bold">{{ user.birthdate|date("d/m/Y") }}</span></div>
+                </div>
+                <div class="col-md-6">
+                    <div class="p-3 border bg-light">Code postal : <span class="fw-bold">{{ user.postalCode }}</span></div>
+                </div>
             </div>
-            <div class="col-md-6">
-                <div class="p-3 border bg-light">Nom : <span class="fw-bold">{{ user.lastname }}</span></div>
-            </div>
-            <div class="col-md-6">
-                <div class="p-3 border bg-light">Prénom : <span class="fw-bold">{{ user.firstname }}</span></div>
-            </div>
-             <div class="col-md-6">
-                <div class="p-3 border bg-light">Pseudo : <span class="fw-bold">{{ user.pseudo }}</span></div>
-            </div>
-            <div class="col-md-6">
-                <div class="p-3 border bg-light">Email : <span class="fw-bold">{{ user.email }}</span></div>
-            </div>
-             <div class="col-md-6">
-                <div class="p-3 border bg-light">Date de naissance : <span class="fw-bold">{{ user.birthdate|date("d/m/Y") }}</span></div>
-            </div>
-            <div class="col-md-6">
-                <div class="p-3 border bg-light">Code postal : <span class="fw-bold">{{ user.postalCode }}</span></div>
-            </div>
-        </div>
+        </section>
+        <section id="user_adverts">
+            <h2>Mes annonces</h2>
+            <hr>
+            <p>
+                <label>Filtre : </label>
+                <select id="advert_filter">
+                    <option>En cours</option>
+                    <option>Vendues</option>
+                    <option>Abandonnées</option>
+                    <option>Toutes</option>
+                </select>
+            </p>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Statut</th>
+                        <th>Titre</th>
+                        <th>Date Publication</th>
+                        <th>Date de fin</th>
+                        <th>Prix</th>
+                    </tr>
+                </thead>
+                <tbody id="advert_list">
+                </tbody>
+            </table>
+        </section>
+
     </main>
 {% endblock %}
