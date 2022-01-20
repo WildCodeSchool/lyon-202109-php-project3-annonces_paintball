@@ -8,10 +8,9 @@
              <p>{{ advert.description }}</p>
               <p>{{ advert.brand }}</p>
                <p>{{ advert.useCondition }}</p>
-                <p>{{ advert.photos }}</p>
-                 <p>{{ advert.owner }}</p>
+                 <p>{{ advert.owner.firstname }} {{ advert.owner.lastname }} - {{ advert.owner.pseudo }} - {{ advert.owner.mobilePhone }} - {{ advert.owner.email }} - {{ advert.owner.postalCode }} - {{ advert.owner.photo.url}}</p>
             {# Lien vers la fiche de l'annonce : #}
-            <a href="{{ path("advert_show", { id: advert.id }) }}">Voir la fiche</a>
+            <a href="{{ path("advert_show", {id: advert.id}) }}">Voir la fiche</a>
         </div>
     {% else %}
         Aucune annnonce correspondante à votre recherche trouvée.
