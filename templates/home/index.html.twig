@@ -4,11 +4,15 @@
 {% endblock %}
 
 {% block body %}
-	<form action="" method="post">
+	<form action="{{ path('home_show') }}" method="post">
 		<div class="container">
 			<label for="categories-select">Selectionner une Catégorie :</label>
 
-			<selectAccessoiresAirBagagesCanons</option name="categories" id="categories-select" class="form-control mb-3" <option value="Accessoires pour lanceurs"> pour lanceurs</option> <option value="Air comprimé et CO2"> comprimé et co2</option> <option value="Bagages et housses"> et housses</option> <option value="Canons">>
+			<select name="categories" id="categories-select" class="form-control mb-3">
+                <option value="Accessoires pour lanceurs">Accessoires pour lanceurs</option>
+                <option value="Air comprimé et CO2">Air comprimé et co2</option>
+                <option value="Bagages et housses">Bagages et housses</option>
+                <option value="Canons">Canons</option>
 				<option value="Divers">Divers</option>
 				<option value="Kits et packages">Kits et packages</option>
 				<option value="Lanceurs de scénario">Lanceurs de scénario</option>

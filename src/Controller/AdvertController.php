@@ -37,6 +37,7 @@ class AdvertController extends AbstractController
         EntityManagerInterface $entityManager
     ): Response {
         $advert = new Advert();
+        $advert->setCreationDate(new \DateTime('now'));
         $form = $this->createForm(AdvertType::class, $advert);
         $form->handleRequest($request);
 
