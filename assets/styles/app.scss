@@ -1,17 +1,16 @@
 @import 'variables.scss';
+@import "~bootstrap/scss/bootstrap";
 body {
     margin:0;
     background-color: white;
 }
-
-@import "~bootstrap/scss/bootstrap";
 
 html, body {
     height: 100%;
 }
 
 main {
-    margin: 0;
+    background-color: lightgray;
 }
 
 .fill { 

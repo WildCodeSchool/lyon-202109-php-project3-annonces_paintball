@@ -5,6 +5,9 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Entity\Advert;
+use App\Entity\User;
+use App\Repository\AdvertRepository;
 
 /**
  * @Route("/admin", name="admin_")
@@ -24,10 +27,13 @@ class AdminController extends AbstractController
     /**
      * @Route("/adverts", name="adverts")
      */
-    public function adminAdverts(): Response
+    public function adminAdverts(AdvertRepository $advertRepository): Response
     {
+        $adverts = $advertRepository->findAll();
+
         return $this->render('admin/index.html.twig', [
-            'controller_name' => 'AdminController',
+            'adverts' => $adverts,
+
         ]);
     }
 
