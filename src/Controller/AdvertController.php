@@ -42,7 +42,7 @@ class AdvertController extends AbstractController
         $advert = new Advert();
         $advert->setCreationDate(new DateTime());
         $expirationDate = date_add(new DateTime(), date_interval_create_from_date_string('30 days'));
-        if ($expirationDate) {
+        if ($expirationDate != false) {
             $advert->setEndDate($expirationDate);
         }
         $form = $this->createForm(AdvertType::class, $advert);
