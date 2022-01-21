@@ -40,7 +40,10 @@ class AdvertController extends AbstractController
     ): Response {
         $advert = new Advert();
         $advert->setCreationDate(new DateTime());
-        $expirationDate = date_add(new DateTime(), date_interval_create_from_date_string('30 days'));
+        $expirationDate = date_add(
+            new DateTime(),
+            date_interval_create_from_date_string('30 days')
+        );/**@phpstan-ignore-line */
         if ($expirationDate != false) {
             $advert->setEndDate($expirationDate);
         }
