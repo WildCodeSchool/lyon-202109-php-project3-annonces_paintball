@@ -10,6 +10,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class AdvertType extends AbstractType
@@ -17,8 +18,8 @@ class AdvertType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('title', TextType::class)
-            ->add('category', ChoiceType::class, ['choices' => [
+            ->add('title', TextType::class, ['label' => 'Titre'])
+            ->add('category', ChoiceType::class, ['label' => 'Catégorie','choices' => [
                 'Accessoires pour lanceurs' => true,
                 'Air comprimé et CO2' => true,
                 'Bagages et housses' => true,
@@ -37,23 +38,15 @@ class AdvertType extends AbstractType
                 'Vetements de jeu' => true,
             ]])
             ->add('description')
-            ->add('price')
-            ->add('creationDate')
+            ->add('price', NumberType::class, ['label' => 'Prix'])
             ->add('updateDate')
-            ->add('endDate')
-            ->add('brand')
-            ->add('useCondition', ChoiceType::class, ['choices' => [
+            ->add('brand', TextType::class, ['label' => 'Marque'])
+            ->add('useCondition', ChoiceType::class, ['label' => 'Etat','choices' => [
                 'Neuf' => true,
                 'Très bon état' => true,
                 'Bon état' => true,
                 'Satisfaisant' => true,
                 'Pour pièces' => true,]])
-            ->add('owner', EntityType::class, [
-                'class' => User::class,
-                'choice_label' => 'username',
-                'multiple' => false,
-                'expanded' => false,
-            ]);
         ;
     }
 

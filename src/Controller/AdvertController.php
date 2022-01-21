@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Advert;
+use phpDocumentor\Reflection\Types\Void_;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -11,6 +12,8 @@ use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use DateTime;
+use DateTimeInterface;
 
 /**
  * @Route("/advert", name="advert_")
@@ -36,6 +39,17 @@ class AdvertController extends AbstractController
         EntityManagerInterface $entityManager
     ): Response {
         $advert = new Advert();
+
+        $advert->setStatus('En cours');
+        $advert->setCreationDate(new DateTime());
+        $advert->setUpdateDate(new DateTime());
+        $expirationDate = date_add(
+            new DateTime(),
+            date_interval_create_from_date_string('30 days')/**@phpstan-ignore-line */
+        );
+        if ($expirationDate != false) {
+            $advert->setEndDate($expirationDate);
+        }
         $form = $this->createForm(AdvertType::class, $advert);
         $form->handleRequest($request);
 
