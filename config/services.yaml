@@ -28,4 +28,9 @@ services:
         tags: ['controller.service_arguments']
 
     # add more service definitions when explicit configuration is needed
+    
+    # configure mail
+    # App\Service\Mailer:
+    #     arguments:
+    #         $adminEmail: 'manager@example.com'
     # please note that last definitions always *replace* previous ones
