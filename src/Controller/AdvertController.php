@@ -39,7 +39,10 @@ class AdvertController extends AbstractController
         EntityManagerInterface $entityManager
     ): Response {
         $advert = new Advert();
+
+        $advert->setStatus('En cours');
         $advert->setCreationDate(new DateTime());
+        $advert->setUpdateDate(new DateTime());
         $expirationDate = date_add(
             new DateTime(),
             date_interval_create_from_date_string('30 days')/**@phpstan-ignore-line */
