@@ -16,11 +16,11 @@ class MailerController extends AbstractController
     public function contactSeller(Emailer $emailer): Response
     {
         $recipient = 'auteurannonce@monmail.com';
-        $message = 'Bonjour,<br>
+        $message = 'Bonjour,<br><br>
         un utilisateur est intéressé par votre annonce, pour échanger avec lui,
          vous pouvez lui addresser un message directement sur sa messagerie personnelle:<br><br>';
         $contactmail = 'acheteurpotentiel@monmail.com';
         $emailer->sendMail($recipient, $message, $contactmail);
-        return $this->redirectToRoute('home');
+        return $this->redirectToRoute('home_index');
     }
 }
