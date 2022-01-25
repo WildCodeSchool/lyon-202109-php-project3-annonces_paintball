@@ -51,9 +51,43 @@ class Advert
     private ?\DateTimeInterface $endDate;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", length=255)
      */
-    private ?string $brand;
+    private string $brand;
+
+    public static array $BRANDS = [
+        'Autres marques',
+        'Armotech',
+        'Azodin',
+        'Base',
+        'BT',
+        'Bunker Kings',
+        'Deadlywind',
+        'DLX',
+        'Dye',
+        'Empire',
+        'GI Sportz/V-Force',
+        'HK Army',
+        'Honorcore',
+        'JT',
+        'Lapco',
+        'MacDev',
+        'Milsig',
+        'Oubtreak',
+        'Planet Eclipse',
+        'Powair',
+        'Proto',
+        'Sly',
+        'Smart Parts/GOG',
+        'Soger',
+        'Spyder',
+        'Tiberius',
+        'Tippmann/Hammerhead',
+        'Trident',
+        'Valken',
+        'Virtue',
+        'WGP',
+    ];
 
     /**
      * @ORM\Column(type="string", length=255)
