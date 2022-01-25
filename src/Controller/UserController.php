@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Advert;
+use App\Repository\AdvertRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -55,5 +56,21 @@ class UserController extends AbstractController
         return $this->render('user/index.html.twig', [
             'controller_name' => 'UserController',
         ]);
+    }
+
+    /**
+     * @Route("/profile/adverts/{status}", name="adverts")
+     */
+    public function adverts(string $status, AdvertRepository $advertRepository): Response
+    {
+        $user = $this->getUser();
+        if ($user) {
+            $adverts = $advertRepository->findByUserAndStatus($user->getId(), $status);/**@phpstan-ignore-line */
+            return $this->render('advert/_advertLines.html.twig', [
+                'adverts' => $adverts,
+            ]);
+        }
+
+        return $this->redirectToRoute('login');
     }
 }

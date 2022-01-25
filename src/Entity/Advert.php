@@ -71,6 +71,49 @@ class Advert
      */
     private ?User $owner;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private string $category;
+
+    public static array $CATEGORIES = [
+        'Accessoires pour lanceurs',
+        'Air comprimé et CO2',
+        'Bagages et housses',
+        'Canons',
+        'Covoiturage',
+        'Divers',
+        'Kits et packages',
+        'Lanceurs de scénario',
+        'Lanceur de compétition',
+        'Lanceurs de loisir',
+        'Loaders et accessoires',
+        'Masques et écrans',
+        'Recrutements',
+        'Tournois',
+        'Terrains et accessoires',
+        'Vetements de jeu',
+    ];
+
+    public static array $USECONDITIONS = [
+        'Neuf',
+        'Très bon état',
+        'Bon état',
+        'Satisfaisant',
+        'Pour pièces',
+    ];
+
+    public static array $STATUS = [
+        "En cours",
+        "Vendues",
+        "Abandonnées",
+    ];
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private string $status;
+
     public function __construct()
     {
         $this->photos = new ArrayCollection();
@@ -215,6 +258,30 @@ class Advert
     public function setOwner(?User $owner): self
     {
         $this->owner = $owner;
+
+        return $this;
+    }
+
+    public function getCategory(): ?string
+    {
+        return $this->category;
+    }
+
+    public function setCategory(string $category): self
+    {
+        $this->category = $category;
+
+        return $this;
+    }
+
+    public function getStatus(): ?string
+    {
+        return $this->status;
+    }
+
+    public function setStatus(string $status): self
+    {
+        $this->status = $status;
 
         return $this;
     }

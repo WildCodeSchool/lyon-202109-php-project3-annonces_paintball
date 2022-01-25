@@ -9,8 +9,8 @@
         <img src="/build/images/Le-wgp-trilogy-3.jpg" class="rounded float-start  col-xs-12" width="500" height="400" alt="Image-Article">
       </div>
       <div class="card-body col-4 border bg-bluecard">
-        <section class= "container-fluid" width="353" height="323">
-          <div class= "row">
+        <section class= "container-fluid d-flex flex-column" width="353" height="323">
+          <div class= "row d-flex flex-column">
             <div class= "col-6">
                 <img src= "/build/images/Profil.jpg" class="thumbnail rounded mx-auto d-block" width="64" height="64" alt="img-profile">
             </div>
@@ -50,17 +50,16 @@
       <section class="container-fluid text-black">
         <div class="row">
           <div class="col-12">
-            <h2>{{ advert.title }} d'occassion</h2>
+            <h2> {{ advert.title }}  d'occassion</h2>
             <cite> Prix: {{ advert.price }} € </cite>
           </div>
           <div class="col-6">
-            <p>Annonce parue le 02/12/2021 14:36</p>
+            <p>Annonce parue le {{ advert.creationDate|date("d/m/Y") }}</p>
           </div>
           <div class="col-6">
-            <p>Dernière mise à jour le 02/01/2022 12:30</p>
+            <p>Dernière mise à jour le {{ advert.updateDate|date("d/m/Y") }}</p>
           </div>
           <hr>
-          <br><br>
           <br><br>
           <hr>
           <div class="col-6">
@@ -92,13 +91,13 @@
           <br>
         <div class="row card">
             <div class="card-header col-2">
-                <img src= "/build/images/Profil.jpg" class="thumbnail rounded mx-auto d-block" width="64" height="64" alt="img-profile">
+                <img src= {{ advert.owner.photo.url }} class="thumbnail rounded mx-auto d-block" width="64" height="64" alt="img-profile">
             </div>
             <div class="card-body">
                 <h5 class="card-title col-xs-3"></h5>
                 <p class="card-text col-xs-3">10 annonces</p>
                 <cite class="col-3">
-                    <p> Membre depuis 11/12/2021</p>
+                    <p> Membre depuis 20/12/2020</p>
                 </cite>
                 <a href="#" class="btn btn-primary col-xs-3">Suivre</a>
             </div>

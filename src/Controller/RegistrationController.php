@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Photo;
 use App\Entity\User;
 use App\Form\RegistrationFormType;
 use App\Security\PaintballAdvertAuthenticator;
@@ -40,6 +41,8 @@ class RegistrationController extends AbstractController
             );
 
             $user->setIsActive(true);
+            //TODO - Change that with a real photo import
+            $user->setPhoto((new Photo())->setUrl('https://i.pravatar.cc/200?img=' . rand(1, 100)));
             $user->setRegistrationDate(new DateTime());
             $user->setLastConnectionDate(new DateTime());
 
