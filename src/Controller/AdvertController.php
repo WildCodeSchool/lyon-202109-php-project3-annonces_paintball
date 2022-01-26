@@ -8,6 +8,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Form\AdvertType;
+use App\Repository\AdvertRepository;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -20,6 +21,17 @@ use DateTimeInterface;
  */
 class AdvertController extends AbstractController
 {
+    /**
+     * @Route("/list", name="list")
+     */
+    public function list(AdvertRepository $advertRepository): Response
+    {
+        return $this->render('advert/index.html.twig', [
+            'adevrts' => $advertRepository->findAll(),
+        ]);
+    }
+
+
     /**
      * @Route("/add", name="add")
      */
