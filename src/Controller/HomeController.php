@@ -8,6 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Advert;
 use App\Form\AdvertType;
 use App\Repository\AdvertRepository;
+use App\Repository\UserRepository;
 use Doctrine\DBAL\Types\StringType;
 
 /**
@@ -25,15 +26,16 @@ class HomeController extends AbstractController
     /**
      * @Route("/show", name="show")
      */
-    public function show(AdvertRepository $advertRepository): Response
+    public function show(AdvertRepository $advertRepository, UserRepository $userRepository): Response
     {
         $adverts = [];
         if (!empty($_POST)) {
             $category = $_POST['categories'];
             $brand = $_POST['brands'];
             $description = $_POST['mot-cles'];
+            $postalCode = $_POST['region'];
             $adverts = $advertRepository->findBySomeField($category, $brand, $description);
-
+            $adverts = $userRepository->findOneBySomeField($postalCode);
         }
         return $this->render('home/show.html.twig', [
             'adverts' => $adverts
