@@ -27,10 +27,10 @@ class AdvertController extends AbstractController
     /**
      * @Route("/{id}", name="show", requirements={"id"="\d+"})
      */
-    public function advertShow(): Response
+    public function advertShow( Advert $advert): Response
     {
         return $this->render('advert/index.html.twig', [
-            'controller_name' => 'AdvertController',
+            'advert' => $advert,
         ]);
     }
 
