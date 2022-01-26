@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
@@ -21,9 +22,8 @@ class RegistrationFormType extends AbstractType
         $builder
             ->add('lastname', TextType::class, ['label' => 'Nom'])
             ->add('firstname', TextType::class, ['label' => 'Prénom'])
-            ->add('birthdate', DateType::class, [
+            ->add('birthdate', BirthdayType::class, [
                     'label' => 'Date de naissance',
-                    'years' => range(1900, 2022),
                     ])
             ->add('postalCode', TextType::class, ['label' => 'Code Postal'])
             ->add('pseudo', TextType::class, ['label' => 'Pseudo'])
