@@ -39,7 +39,6 @@ class AdvertType extends AbstractType
             ]])
             ->add('description')
             ->add('price', NumberType::class, ['label' => 'Prix'])
-            ->add('updateDate')
             ->add('brand', TextType::class, ['label' => 'Marque'])
             ->add('useCondition', ChoiceType::class, ['label' => 'Etat','choices' => [
                 'Neuf' => true,
