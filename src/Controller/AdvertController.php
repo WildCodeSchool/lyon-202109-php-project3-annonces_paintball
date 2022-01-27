@@ -86,7 +86,7 @@ class AdvertController extends AbstractController
     {
         return $this->render('advert/show.html.twig', [
             'advert' => $advert,
-        ]); 
+        ]);
     }
     /**
      * @Route("/search", name="search")
