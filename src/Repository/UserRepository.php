@@ -53,7 +53,6 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
     }
     */
 
-    
     public function findOneBySomeField(string $postalCode): array
     {
         $query = $this->createQueryBuilder('u');
@@ -65,5 +64,4 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
         $query->orderBy('u.postalCode', 'ASC');
         return $query->getQuery()->getResult();
     }
-
 }
