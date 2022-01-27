@@ -62,6 +62,6 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
             ->setParameter('postalCode', $postalCode);
         }
         $query->orderBy('u.postalCode', 'ASC');
-        return $query->getQuery()->getResult();
+        return (array)$query->getQuery()->getResult();
     }
 }
