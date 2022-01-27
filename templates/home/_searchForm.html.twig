@@ -10,9 +10,12 @@
 		</div>
 
 		<div>
-			<label for="marque">
-				Marque :</label>
-			<input type="text" name="marque" class="form-control mb-3">
+			<label for="brands-select">Selectionner une Marque :</label>
+			<select name="brands" id="brands-select" class="form-control mb-3">
+				{% for brand in brands %}
+					<option>{{ brand }}</option>
+				{% endfor %}
+			</select>
 		</div>
 
 		<div>

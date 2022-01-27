@@ -24,21 +24,21 @@ class HomeController extends AbstractController
         return $this->render('home/index.html.twig', [
             'categories' => Advert::$CATEGORIES,
             'regions' => Advert::$REGIONS,
+            'brands' => Advert::$BRANDS,
         ]);
     }
     /**
      * @Route("/show", name="show")
      */
-    public function show(AdvertRepository $advertRepository, UserRepository $userRepository): Response
+    public function show(AdvertRepository $advertRepository): Response
     {
         $adverts = [];
         if (!empty($_POST)) {
             $category = $_POST['categories'];
             $brand = $_POST['brands'];
             $description = $_POST['mot-cles'];
-            $postalCode = $_POST['region'];
-            $adverts = $advertRepository->findBySomeField($category, $brand, $description);
-            $adverts = $userRepository->findOneBySomeField($postalCode);
+            $region = $_POST['region'];
+            $adverts = $advertRepository->findBySomeField($category, $brand, $description, $region);
         }
         return $this->render('home/show.html.twig', [
             'adverts' => $adverts
