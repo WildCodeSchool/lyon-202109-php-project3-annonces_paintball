@@ -26,8 +26,8 @@ class AdvertController extends AbstractController
      */
     public function list(AdvertRepository $advertRepository): Response
     {
-        return $this->render('advert/index.html.twig', [
-            'adevrts' => $advertRepository->findAll(),
+        return $this->render('advert/list.html.twig', [
+            'adverts' => $advertRepository->findAll(),
         ]);
     }
 

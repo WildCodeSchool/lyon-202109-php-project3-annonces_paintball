@@ -11,6 +11,8 @@ grumphp:
             directory: ['src']
         phpcs:
             standard: ~
+            exclude: 
+                - '\src\DataFixtures\AdvertFixtures.php'
         phpmnd:
             directory: 'src'
         phpstan:

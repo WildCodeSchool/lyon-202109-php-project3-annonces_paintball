@@ -61,7 +61,7 @@ class Advert
     private string $useCondition;
 
     /**
-     * @ORM\OneToMany(targetEntity=Photo::class, mappedBy="advert")
+     * @ORM\OneToMany(targetEntity=Photo::class, mappedBy="advert", cascade={"persist"})
      */
     private Collection $photos;
 

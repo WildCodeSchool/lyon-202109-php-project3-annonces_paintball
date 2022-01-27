@@ -26,16 +26,13 @@
 				<h2>Nos dernières annonces</h2>
 				<hr>
 
-				<p>
-					Cupidatat aute anim veniam sunt proident ea nulla irure. Dolore velit nulla sunt non do. Pariatur do ipsum consequat aliqua. Anim esse occaecat incididunt irure ut culpa fugiat esse incididunt officia dolor.
-					Eiusmod elit eu commodo reprehenderit excepteur laborum non cillum veniam ad ad reprehenderit. Eu voluptate voluptate duis do sit veniam elit nisi eu dolore in sunt. Aliquip cupidatat consequat sit mollit incididunt irure id officia. Reprehenderit velit ad qui aliquip elit ea nulla. Ullamco qui est cupidatat cupidatat sunt qui. Cillum velit proident amet enim eu anim. Sunt deserunt consequat deserunt duis ipsum et consectetur sunt exercitation deserunt deserunt deserunt sit.
-					Consectetur veniam exercitation ipsum ipsum proident ipsum culpa cupidatat nulla minim in consectetur ea reprehenderit. Elit eu irure occaecat ut commodo ea deserunt adipisicing voluptate nisi consequat consequat. Qui eiusmod do ut anim eu aliquip. Exercitation adipisicing officia elit irure eiusmod elit voluptate labore ex consectetur do enim. Consequat veniam consequat magna labore eu nisi eu ut ipsum adipisicing id consectetur voluptate. Mollit veniam laboris laborum commodo sit ipsum.
-					Tempor pariatur reprehenderit ex cillum officia id aute sunt et minim ullamco quis consectetur. Deserunt nostrud nulla nulla minim veniam do tempor commodo duis fugiat minim occaecat. Officia reprehenderit nisi sint do. Aute nisi Lorem excepteur anim sunt commodo do esse laboris labore.
-					Amet Lorem velit nulla ea eu pariatur quis. Fugiat irure deserunt Lorem eiusmod aliquip nostrud reprehenderit mollit pariatur velit sit proident. Sit est sunt veniam elit sint consectetur. Incididunt sunt sint labore quis sint incididunt officia eiusmod quis dolore et nulla. Culpa quis tempor nostrud duis aliquip aliquip culpa quis. Sit excepteur esse quis consequat incididunt occaecat aute enim laborum sint eiusmod. Excepteur minim irure adipisicing aliquip tempor quis dolore laborum ipsum consequat eu consequat excepteur fugiat.
-					Et laborum qui laboris et esse sint minim occaecat ea minim pariatur voluptate aliqua. Enim minim consequat fugiat mollit incididunt quis occaecat consequat enim. Cillum ad elit laborum aute exercitation id velit culpa tempor culpa. Esse ipsum deserunt pariatur exercitation pariatur culpa sint occaecat qui qui esse aliquip.
-					Et elit mollit qui deserunt et adipisicing nulla magna. Sint incididunt aute consequat dolore proident commodo esse dolore et eu proident ad cupidatat. Elit do dolore qui ipsum in ex cupidatat ipsum occaecat ex nulla consectetur et. Commodo laborum in culpa sunt ullamco adipisicing. In eu do sint non reprehenderit nisi laborum mollit tempor ex velit id minim.
-					Non deserunt enim aliquip elit non reprehenderit voluptate sunt occaecat ex commodo. Excepteur ullamco non ipsum commodo ex nostrud mollit deserunt irure. Occaecat consequat laborum eiusmod occaecat. Sint nostrud incididunt voluptate cupidatat incididunt Lorem sint adipisicing minim. Nisi nisi est nostrud sit tempor ad ipsum cillum. Incididunt pariatur ut ad anim esse sint qui.
-				</p>
+				<div class="row">
+					{% for advert in lastAdverts %}
+						<div class="col-sm-6 col-md-2">
+							{% include "advert/_advert_card.html.twig" with {'advert': advert} %}
+						</div>
+					{% endfor %}
+				</div>
 
 
 				<h2>Tendances actuelles</h2>

@@ -17,9 +17,11 @@ class HomeController extends AbstractController
     /**
      * @Route("/index", name="index")
      */
-    public function index(): Response
+    public function index(AdvertRepository $advertRepository): Response
     {
+        $lastAdverts = $advertRepository->findLastAdverts();
         return $this->render('home/index.html.twig', [
+            'lastAdverts' => $lastAdverts,
             'categories' => Advert::$CATEGORIES,
             'regions' => Advert::$REGIONS,
         ]);

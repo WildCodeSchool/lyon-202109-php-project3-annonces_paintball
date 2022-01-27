@@ -44,6 +44,19 @@ class AdvertRepository extends ServiceEntityRepository
         ;
     }
 
+    // /**
+    //  * @return Advert[] Returns an array of Advert objects
+    //  */
+    public function findLastAdverts()/**@phpstan-ignore-line */
+    {
+        return $this->createQueryBuilder('a')
+            ->orderBy('a.creationDate', 'DESC')
+            ->setMaxResults(6)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
     /*
     public function findOneBySomeField($value): ?Advert
     {
