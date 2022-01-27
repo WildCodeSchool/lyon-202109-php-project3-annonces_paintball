@@ -68,7 +68,6 @@ class AdvertController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $user = $this->getUser();
             $advert->setOwner($user);/**@phpstan-ignore-line */
-
             $entityManager->persist($advert);
             $entityManager->flush();
 
