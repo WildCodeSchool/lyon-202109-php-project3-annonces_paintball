@@ -26,8 +26,8 @@ class AdvertController extends AbstractController
      */
     public function list(AdvertRepository $advertRepository): Response
     {
-        return $this->render('advert/index.html.twig', [
-            'adevrts' => $advertRepository->findAll(),
+        return $this->render('advert/list.html.twig', [
+            'adverts' => $advertRepository->findAll(),
         ]);
     }
 
@@ -69,7 +69,6 @@ class AdvertController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $user = $this->getUser();
             $advert->setOwner($user);/**@phpstan-ignore-line */
-
             $entityManager->persist($advert);
             $entityManager->flush();
 
