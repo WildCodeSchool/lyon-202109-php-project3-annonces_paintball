@@ -22,24 +22,14 @@
         <section class= "container-fluid d-flex flex-column" width="353" height="323">
           <div class= "row d-flex flex-column">
             <div class= "col-sm-8 col-lg-4">
-                <img src= "/build/images/Profil.jpg" class="thumbnail rounded mx-auto d-block" width="64" height="64" alt="img-profile">
+                <img src= {{ advert.owner.photo.url }} class="thumbnail rounded mx-auto d-block" width="64" height="64" alt="img-profile">
             </div>
             <div class= "col-sm-4 col-lg-8 text-black">
-              <p> Francise Duchaine </p>
+              <p> {{ advert.owner.pseudo }} </p>
               <cite>
-                <p> 10 annonces </p>
+              <p>{{ advert.owner|length }}</p>
               </cite>
           </div>
-          <div class="row">
-            <div class="col-8 text-black">
-              <p>Notation 3,9/5</p>
-            </div>
-            <div class="col-4 text-black">
-              <p> (423)</p>
-            </div>
-          </div>
-          <div class="row">
-              <a href="#" class="col btn border btn-danger text-black">Voir son profil</a>
           </div>
             <div class= "container">
                 <div class= "row">
@@ -52,7 +42,7 @@
                 </div>
             </div>
                 <div class= "row">
-                    <a href="#" class="col border btn btn-white text-black">Contacter</a>
+                    <a href="#" class="col border btn btn-danger text-black">Contacter</a>
                 </div>
               </div>
         </section>
@@ -60,16 +50,15 @@
       <section class="container-fluid text-black">
         <div class="row">
           <div class="col-12">
-            <h2> {{ advert.title }}  d'occassion</h2>
-            <cite> Prix: {{ advert.price }} € </cite>
+            <h2> {{ advert.title }} {{ advert.price }} € </h2>
           </div>
+          <br><br>
           <div class="col-6">
             <p>Annonce parue le {{ advert.creationDate|date("d/m/Y") }}</p>
           </div>
           <div class="col-6">
             <p>Dernière mise à jour le {{ advert.updateDate|date("d/m/Y") }}</p>
           </div>
-          <hr>
           <br>
           <div class="col-6">
             <p>Marque: {{ advert.brand }}</p>
@@ -78,38 +67,17 @@
             <p>Modèle: Lanceur WGP</p>
           </div>
           <br>
-          <hr>
-          <div class="col-6">
-            <p>58 visites</p>
-          </div>
           <div class="col-12">
             <p>Description: {{ advert.description }}</p>
           </div>
-          <hr>
           <div class="col-12">
-            <p>Critères</p>
-            <cite>Etat</cite>
-            <p>Très bon états</p>
+            <cite>Condition</cite>
+            <p>{{ advert.useCondition }}</p>
           </div>
-          <hr>
           <div class="col-6">
             <a href="#" class="btn btn-primary col-xs-3">Signaler l'annonce</a>
           </div>
-          <hr>
           <br>
-        <div class="row card">
-            <div class="card-header col-2">
-                <img src= {{ advert.owner.photo.url }} class="thumbnail rounded mx-auto d-block" width="64" height="64" alt="img-profile">
-            </div>
-            <div class="card-body">
-                <h5 class="card-title col-xs-3"></h5>
-                <p class="card-text col-xs-3">10 annonces</p>
-                <cite class="col-3">
-                    <p> Membre depuis 20/12/2020</p>
-                </cite>
-                <a href="#" class="btn btn-primary col-xs-3">Suivre</a>
-            </div>
-        </div>
     </div>
   <section>
 </main>

@@ -2,7 +2,9 @@
 
 namespace App\Repository;
 
+use App\Controller\Countable as ControllerCountable;
 use App\Entity\Advert;
+use Countable;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use phpDocumentor\Reflection\Types\Collection;
@@ -43,6 +45,7 @@ class AdvertRepository extends ServiceEntityRepository
             ->getResult()
         ;
     }
+
 
     /*
     public function findOneBySomeField($value): ?Advert
