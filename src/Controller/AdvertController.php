@@ -52,7 +52,6 @@ class AdvertController extends AbstractController
     ): Response {
         $advert = new Advert();
 
-        $brand = $this->getBrand();
         $advert->setStatus('En cours');
         $advert->setCreationDate(new DateTime());
         $advert->setUpdateDate(new DateTime());

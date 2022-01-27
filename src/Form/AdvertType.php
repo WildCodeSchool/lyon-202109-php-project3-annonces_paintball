@@ -39,7 +39,39 @@ class AdvertType extends AbstractType
             ]])
             ->add('description')
             ->add('price', NumberType::class, ['label' => 'Prix'])
-            ->add('brand', TextType::class, ['label' => 'Marque'])
+            ->add('brand', ChoiceType::class, ['label' => 'Marque','choices' => [
+                'Autres marques' => true,
+        'Armotech' => true,
+        'Azodin' => true,
+        'Base' => true,
+        'BT' => true,
+        'Bunker Kings' => true,
+        'Deadlywind' => true,
+        'DLX' => true,
+        'Dye' => true,
+        'Empire' => true,
+        'GI Sportz/V-Force' => true,
+        'HK Army' => true,
+        'Honorcore' => true,
+        'JT' => true,
+        'Lapco' => true,
+        'MacDev' => true,
+        'Milsig' => true,
+        'Oubtreak' => true,
+        'Planet Eclipse' => true,
+        'Powair' => true,
+        'Proto' => true,
+        'Sly' => true,
+        'Smart Parts/GOG' => true,
+        'Soger' => true,
+        'Spyder' => true,
+        'Tiberius' => true,
+        'Tippmann/Hammerhead' => true,
+        'Trident' => true,
+        'Valken' => true,
+        'Virtue' => true,
+        'WGP' => true,
+            ]])
             ->add('useCondition', ChoiceType::class, ['label' => 'Etat','choices' => [
                 'Neuf' => true,
                 'Très bon état' => true,

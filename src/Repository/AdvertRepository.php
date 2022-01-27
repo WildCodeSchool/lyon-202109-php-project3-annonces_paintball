@@ -47,7 +47,6 @@ class AdvertRepository extends ServiceEntityRepository
     public function findBySomeField(string $category, string $brand, string $description, string $region): ?array
     {
         $region = substr($region, 0, -3);
-        
         $regions = ['Auvergne-Rhône-Alpes' => ['01', '03', '07', '15', '26', '38', '42', '43', '63', '69', '73', '74'],
         'Bourgogne-Franche-Comté' => ['21', '25', '39', '58', '70', '71', '89', '90'],
         'Bretagne' => ['22', '29', '35', '56'],
