@@ -9,6 +9,9 @@ use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
 use Faker\Factory as FakerFactory;
 
+/**
+ * @codingStandardsIgnoreStart
+ */
 class AdvertFixtures extends Fixture implements DependentFixtureInterface
 {
     private array $photos = [
@@ -43,7 +46,13 @@ class AdvertFixtures extends Fixture implements DependentFixtureInterface
         'https://www.cdiscount.com/pdt2/6/9/2/1/700x700/auc6913280734692/rw/gilet-veste-en-nylon-camouflage-molle-tactique.jpg',
         'https://homyshirt.com/30067-large_default/veste-tactique-airsolf-paintball-arm%C3%A9e-police-swat.jpg',
         'https://fr.shopping.rakuten.com/photo/871131037_L.jpg',
+        'https://sc04.alicdn.com/kf/U06a1552baf494c029c6a9497bf72f273O.jpg',
+        'https://one.nbstatic.fr/uploaded/20210501/7936952/thumbs/450h300f_00001_Pantalon-Dye-LT-rouge.jpg',
     ];
+
+    /**
+     * @codingStandardsIgnoreEnd
+     */
     public function load(ObjectManager $manager): void
     {
         $faker = FakerFactory::create();
