@@ -44,7 +44,7 @@ class AdvertRepository extends ServiceEntityRepository
         ;
     }
 
-    public function findBySomeField(string $category, string $brand, string $description, string $region): array
+    public function findBySomeField(string $category, string $brand, string $description, string $region): ?array
     {
         $regions = ['Auvergne-Rhône-Alpes' => ['01', '03', '07', '15', '26', '38', '42', '43', '63', '69', '73', '74'],
         'Bourgogne-Franche-Comté' => ['21', '25', '39', '58', '70', '71', '89', '90'],
@@ -74,11 +74,11 @@ class AdvertRepository extends ServiceEntityRepository
             $query->andWhere('a.description = :description')
               ->setParameter('description', $description);
         }
-        if ($region != null) {
+        if ($region != null && array_key_exists($region, $regions)) {
             $query->andWhere('a.owner = :postalCode')
             ->setParameter('postalCode', $region);
         }
         $query->orderBy('a.id', 'ASC');
-        return $query->getQuery()->getResult();
+        return (array)$query->getQuery()->getResult();
     }
 }
