@@ -41,7 +41,8 @@ main {
 
 #mainHeader {
     background-image: url(../images/Woodland_Camouflage.svg);
-    background-size: 150%; 
+    background-size: 150%;
+    position:-webkit-sticky; position:sticky; top:0;
 }
 
 
