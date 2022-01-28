@@ -3,30 +3,36 @@
 
 html, body {
     height: 100%;
+    
 }
 
 body {
     margin:0;
-    background-color: $light;
+    background-color: white;
 }
 
 main {
-    background-color: lightgray;
+    background-color: white;
 }
 
 .fill { 
     min-height: 100%;
 }
 
+.navBar{
+    position: fixed;
+}
+
 .navBtn {
-    width: 150px;    
+    width: 150px;
+    position: sticky;    
 }
 
 .searchBox {
     border: 3px black solid;
     border-radius: 20px;
     height: fit-content;
-    position: sticky;
+    position: static sticky;
 }
 
 #user_adverts {
