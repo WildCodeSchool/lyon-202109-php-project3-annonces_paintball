@@ -5,7 +5,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<link rel="icon" type="image/png" href="{{ asset('build/images/favicon.png') }}"/>
 		<title>
-			{% block title %}Projet 3 Name{% endblock %}
+			{% block title %}Projet 3 Name
+			{% endblock %}
 		</title>
 		{% block stylesheets %}
 			{{ encore_entry_link_tags('app') }}
@@ -15,6 +16,57 @@
 		{% endblock %}
 	</head>
 	<body>
+		<header id="mainHeader">
+			<nav class="navbar navbar-expand-lg navbar-dark p-3">
+				<div class="container-fluid">
+					<a class="navbar-brand" href="{{ path('home_index') }}">Annonces Paintball</a>
+					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+					<div class="collapse navbar-collapse" id="navbarSupportedContent">
+						<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+							<li class="nav-item">
+								<a class="nav-link active" aria-current="page" href="{{ path('home_index') }}">Accueil</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="{{ path('advert_list') }}">Les Annonces</a>
+							</li>
+						</ul>
+
+						{% if app.user is null %}
+
+							<form class="d-flex" action="{{ path('app_login') }}">
+								<button class="btn btn-outline-success navBtn" type="submit">Se Connecter</button>
+							</form>
+							<form class="d-flex ms-3" action="{{ path('app_register') }}">
+								<button class="btn btn-outline-info navBtn" type="submit">S'Inscrire</button>
+							</form>
+
+						{% else %}
+
+							<form class="d-flex" action="{{ path('app_login') }}">
+								<button class="btn btn-outline-success navBtn" type="submit">Mon Compte</button>
+							</form>
+							<form class="d-flex ms-3" action="{{ path('app_logout') }}">
+								<button class="btn btn-outline-danger navBtn" type="submit">Se Déconnecter</button>
+							</form>
+
+						{% endif %}
+					</div>
+				</div>
+			</nav>
+		</header>
 		{% block body %}{% endblock %}
+
+		<footer class="footer mt-auto py-3 bg-dark">
+			<div class="container">
+				<p class="text-muted text-center">Je rejoins la communauté Annonces-Paintball.com</p>
+				<p class="text-center">
+					<img src="{{ asset('build/images/twitter.png') }}" width="50">
+					<img src="{{ asset('build/images/facebook.png') }}" width="50">
+					<img src="{{ asset('build/images/instagram.png') }}" width="50">
+				</p>
+			</div>
+		</footer>
 	</body>
 </html>
