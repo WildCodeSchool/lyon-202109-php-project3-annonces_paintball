@@ -32,11 +32,14 @@ main {
 #user_adverts {
     margin-top: 5rem;
 }
-
-#mainHeader {
+//changed #mainHeader by .navbar (+in html <nav class="navbar fixed-top navbar-expand-lg">)
+.navbar {
     background-image: url(../images/Woodland_Camouflage.svg);
     background-size: 150%;
-    position:-webkit-sticky; position:sticky; top:0;
+    // position:fixed;
+    // position:-webkit-sticky;
+    // position:sticky; top:0;
+    z-index: 999;
 }
 
 
@@ -73,4 +76,7 @@ main {
 .homeMain #img-card-canvas {
     height: 150px;
     overflow: hidden;
+}
+.navcontent{
+    padding:50px;
 }
