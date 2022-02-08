@@ -19,7 +19,9 @@ main {
 }
 
 .navBtn {
-    width: 150px;    
+    width: 120px; 
+    background-color: rgb(59, 94, 64);
+    color:whitesmoke;
 }
 
 .searchBox {
@@ -34,14 +36,21 @@ main {
 }
 //changed #mainHeader by .navbar (+in html <nav class="navbar fixed-top navbar-expand-lg">)
 .navbar {
-    background-image: url(../images/Woodland_Camouflage.svg);
-    background-size: 150%;
+    background-color:rgb(47, 75, 53);
     // position:fixed;
     // position:-webkit-sticky;
     // position:sticky; top:0;
     z-index: 999;
 }
+.nav-link{
+    font-size:large;
+    font-weight: 500;
+}
 
+.navbar-brand{
+    font-size: 25px;
+    font-weight:800;
+}
 
 #carouselSlidesShow {
     object-fit: none;
@@ -77,6 +86,10 @@ main {
     height: 150px;
     overflow: hidden;
 }
-.navcontent{
-    padding:50px;
+
+@media screen and (min-width: 768px){
+    .navbar {
+        background-image: url(../images/Woodland_Camouflage.svg);
+        background-size: 150%;
+    }
 }
