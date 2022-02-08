@@ -18,7 +18,7 @@ class Photo
     private int $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private string $url;
 
@@ -32,6 +32,11 @@ class Photo
      */
     private ?User $user;
 
+    /**
+     * @ORM\OneToOne(targetEntity=Upload::class, mappedBy="photo", cascade={"persist", "remove"})
+     */
+    private ?Upload $upload;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -39,6 +44,7 @@ class Photo
 
     public function getUrl(): ?string
     {
+
         return $this->url;
     }
 
@@ -69,6 +75,23 @@ class Photo
     public function setUser(?User $user): self
     {
         $this->user = $user;
+
+        return $this;
+    }
+
+    public function getUpload(): ?Upload
+    {
+        return $this->upload;
+    }
+
+    public function setUpload(Upload $upload): self
+    {
+        // set the owning side of the relation if necessary
+        if ($upload->getPhoto() !== $this) {
+            $upload->setPhoto($this);
+        }
+
+        $this->upload = $upload;
 
         return $this;
     }
