@@ -58,7 +58,13 @@ class AdvertRepository extends ServiceEntityRepository
         ;
     }
 
-    public function findBySomeField(string $category, string $brand, string $description, string $region, string $useCondition): ?array
+    public function findBySomeField(
+        string $category,
+        string $brand,
+        string $description,
+        string $region,
+        string $useCondition
+        ): ?array
     {
         $query = $this->createQueryBuilder('a');
 
