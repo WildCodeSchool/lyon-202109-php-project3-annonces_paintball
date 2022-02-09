@@ -41,7 +41,7 @@ class HomeController extends AbstractController
             $brand = $_POST['brands'];
             $description = $_POST['mot-cles'];
             $region = $_POST['region'];
-            $useCondition = $_POST['etat'];            
+            $useCondition = $_POST['etat'];
             $adverts = $advertRepository->findBySomeField($category, $brand, $description, $region, $useCondition);
         }
         return $this->render('advert/list.html.twig', [

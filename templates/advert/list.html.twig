@@ -7,7 +7,7 @@
     {% if app.request.getPathInfo() == "/advert/list" %}
         <h2>Toutes les annonces</h2>
         {% else %}
-        <h2>{{adverts|length}} annonces correspondant à votre recherche</h2>
+        <h2>{{ adverts|length }} annonces correspondant à votre recherche</h2>
         {% endif %}
         <div id="listOfAdvert" class="row">
         {% for advert in adverts %}
