@@ -64,8 +64,7 @@ class AdvertRepository extends ServiceEntityRepository
         string $description,
         string $region,
         string $useCondition
-        ): ?array
-    {
+    ): ?array {
         $query = $this->createQueryBuilder('a');
 
         if ($category != null) {
