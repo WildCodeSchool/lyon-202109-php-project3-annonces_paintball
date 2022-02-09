@@ -3,6 +3,7 @@
 			<label for="categories-select">Selectionner une Catégorie :</label>
 
 			<select name="categories" id="categories-select" class="form-control mb-3">
+				<option></option>
                 {% for category in categories %}
 					<option>{{ category }}</option>
 				{% endfor %}
@@ -12,8 +13,18 @@
 		<div>
 			<label for="brands-select">Selectionner une Marque :</label>
 			<select name="brands" id="brands-select" class="form-control mb-3">
+			<option></option>
 				{% for brand in brands %}
 					<option>{{ brand }}</option>
+				{% endfor %}
+			</select>
+		</div>
+		<div>
+			<label for="useCondition-select">État :</label>
+			<select name="etat" id="etat-select" class="form-control mb-3">
+			<option></option>
+				{% for useConditions in useCondition %}
+					<option>{{ useConditions }}</option>
 				{% endfor %}
 			</select>
 		</div>
@@ -22,6 +33,7 @@
 			<label for="region-select">Selectionner une Région :</label>
 
 			<select name="region" id="region-select" class="form-control mb-3">
+			<option></option>
 				{% for region in regions %}
 					<option>{{ region }}</option>
 				{% endfor %}

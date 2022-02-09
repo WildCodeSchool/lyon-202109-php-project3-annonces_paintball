@@ -44,23 +44,22 @@ class AdvertRepository extends ServiceEntityRepository
         ;
     }
 
-    public function findBySomeField(string $category, string $brand, string $description, string $region): ?array
-    {
-        $region = substr($region, 0, -3);
-        $regions = ['Auvergne-Rhône-Alpes' => ['01', '03', '07', '15', '26', '38', '42', '43', '63', '69', '73', '74'],
-        'Bourgogne-Franche-Comté' => ['21', '25', '39', '58', '70', '71', '89', '90'],
-        'Bretagne' => ['22', '29', '35', '56'],
-        'Centre-Val de Loire' => ['18', '28', '36', '37', '41', '45'],
-        'Corse' => ['2A', '2B'],
-        'Grand Est' => ['08', '10', '51', '52', '54', '55', '57', '67', '68', '88'],
-        'Hauts-de-France' => ['02', '59', '60', '62', '80'],
-        'Ile-de-France' => ['75', '77','78', '91', '92', '93', '94', '95'],
-        'Normandie' => ['14', '27', '50', '61', '76'],
-        'Nouvelle-Aquitaine' => ['16', '17', '19', '23', '24', '33', '40', '47', '64', '79', '86', '87'],
-        'Occitanie' => ['09', '11', '12', '30', '31', '32', '34', '46', '48', '65', '66', '81', '82'],
-        'Pays de la Loire' => ['44', '49', '53', '72', '85'],
-        'Provence-Alpes-Côte d’Azur' => ['04', '05', '06', '13', '83', '84'],];
 
+    // /**
+    //  * @return Advert[] Returns an array of Advert objects
+    //  */
+    public function findLastAdverts()/**@phpstan-ignore-line */
+    {
+        return $this->createQueryBuilder('a')
+            ->orderBy('a.creationDate', 'DESC')
+            ->setMaxResults(6)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
+    public function findBySomeField(string $category, string $brand, string $description, string $region, string $useCondition): ?array
+    {
         $query = $this->createQueryBuilder('a');
 
         if ($category != null) {
@@ -73,11 +72,15 @@ class AdvertRepository extends ServiceEntityRepository
         }
         if ($description != null) {
             $query->andWhere('a.description = :description')
-              ->setParameter('description', $description);
+            ->setParameter('description', $description);
         }
-        if (isset($regions[$region])) {
-            $query->andWhere('a.owner = :postalCode')
-            ->setParameter('postalCode', $region);
+        if ($region != null) {
+            $query->andWhere("a.region = :region")
+            ->setParameter('region', $region);
+        }
+        if ($useCondition != null) {
+            $query->andWhere('a.useCondition = :useCondition')
+            ->setParameter('useCondition', $useCondition);
         }
         $query->orderBy('a.id', 'ASC');
         return (array)$query->getQuery()->getResult();

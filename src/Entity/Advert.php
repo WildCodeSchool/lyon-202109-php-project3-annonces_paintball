@@ -95,7 +95,7 @@ class Advert
     private string $useCondition;
 
     /**
-     * @ORM\OneToMany(targetEntity=Photo::class, mappedBy="advert")
+     * @ORM\OneToMany(targetEntity=Photo::class, mappedBy="advert", cascade={"persist"})
      */
     private Collection $photos;
 
@@ -163,6 +163,11 @@ class Advert
      * @ORM\Column(type="string", length=255)
      */
     private string $status;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $region;
 
     public function __construct()
     {
@@ -332,6 +337,18 @@ class Advert
     public function setStatus(string $status): self
     {
         $this->status = $status;
+
+        return $this;
+    }
+
+    public function getRegion(): ?string
+    {
+        return $this->region;
+    }
+
+    public function setRegion(string $region): self
+    {
+        $this->region = $region;
 
         return $this;
     }

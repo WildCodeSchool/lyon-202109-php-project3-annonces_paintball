@@ -1,0 +1,84 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Annonce{% endblock %}
+
+{% block body %}
+<main class= "container-fluid border">
+ <div class ="row">
+  <div id="carouselExampleSlidesOnly" class="carousel slide col-sm-12 col-lg-8" data-bs-ride="carousel">
+   <div class="carousel-inner">
+    <div class="carousel-item active">
+    <div class="card mb-4 box-shadow">
+      <img class="card-img-top img-fluid img-card imgView"
+        src="{% if advert.photos[0] is defined %}
+                {{ advert.photos[0].url }}
+            {% else %}
+                {{ asset('build/images/product-image-placeholder.jpg') }}
+            {% endif %}" alt="Card image cap">
+    </div>
+  </div>
+ </div>
+ </div>
+      <div class="card-body col-sm-12 col-lg-4 border bg-bluecard">
+        <section class= "container-fluid d-flex flex-column" width="353" height="323">
+          <div class= "row d-flex flex-column">
+            <div class= "col-sm-8 col-lg-4">
+                <img class="card-img-top img-fluid img-card"src= {{ advert.owner.photo.url }} class="thumbnail rounded mx-auto d-block" width="64" height="64" alt="img-profile">
+            </div>
+            <div class= "col-sm-4 col-lg-8 text-black">
+              <p><strong> {{ advert.owner.pseudo }} </strong></p>
+              <cite>
+              <p>{{ advert.owner|length }} annonces</p>
+              </cite>
+          </div>
+          </div>
+            <div class= "container">
+                <div class= "row">
+                  <div class= "col-12 text-black">
+                      <p>
+                    Mail en journée pour plus de rapidité
+                         ou sms sinon sans problèmes </p>
+                  </div>
+                <HR>
+                </div>
+            </div>
+                <div class= "row">
+                    <a href="#" class="col border btn btn-danger text-black">Contacter</a>
+                </div>
+              </div>
+        </section>
+      </div>
+      <section class="container-fluid text-black">
+        <div class="row">
+          <div class="col-12">
+            <h2> {{ advert.title }} </h2>
+           <h3> {{ advert.price }} € </h2>
+          </div>
+          <div class="col-6">
+            <cite><strong>Marque:</strong></cite>
+            <p>{{ advert.brand }}</p>
+          </div>
+          <div class="col-12">
+            <cite><strong>Condition:</strong></cite>
+            <p>{{ advert.useCondition }}</p>
+          </div>
+           <div class="col-8">
+            <cite><strong>Description:</strong></cite>
+            <p>{{ advert.description }}</p>
+            <HR>
+          </div>
+          <div class="col-6">
+            <p>Annonce parue le {{ advert.creationDate|date("d/m/Y") }}</p>
+          </div>
+          <div class="col-6">
+            <p>Dernière mise à jour le {{ advert.updateDate|date("d/m/Y") }}</p>
+          </div>
+          </div>
+          <div class="col-6">
+            <a href="#" class="btn btn-primary col-xs-3">Signaler l'annonce</a>
+          </div>
+          <br>
+    </div>
+  <section>
+</main>
+{% endblock %}

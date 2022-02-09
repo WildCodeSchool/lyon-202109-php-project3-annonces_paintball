@@ -1,0 +1,21 @@
+
+<div class="card mb-4 box-shadow">
+<div id="img-card-canvas">
+    <img class="card-img-top img-fluid img-card"
+        src="{% if advert.photos[0] is defined %}
+                {{ advert.photos[0].url }}
+            {% else %}
+                {{ asset('build/images/product-image-placeholder.jpg') }}
+            {% endif %}" alt="Card image cap">
+</div>
+<div class="card-body">
+    <h5 class="card-title advert-title">{{ advert.title }}</h5>
+    <div class="card-text">
+    <p>{{ advert.brand }} </p>
+        <p>{{ advert.price }} €</p>
+    </div>
+    <p class="text-center">
+        <a href="{{ path('advert_show', {'id': advert.id}) }}" class="btn btn-primary">Voir</a>
+    </p>
+</div>
+</div>
