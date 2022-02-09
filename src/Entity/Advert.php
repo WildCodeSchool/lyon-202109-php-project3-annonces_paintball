@@ -167,7 +167,7 @@ class Advert
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $region;
+    private string $region;
 
     public function __construct()
     {
