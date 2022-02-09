@@ -18,19 +18,19 @@
 				{% if app.user is null %}
 
 					<form class="d-flex" action="{{ path('app_login') }}">
-						<button class="btn navBtn  me-2" type="submit">Connexion</button>
+						<button class="btn nav-btn  me-2" type="submit">Connexion</button>
 					</form>
 					<form class="d-flex" action="{{ path('app_register') }}">
-						<button class="btn navBtn my-1" type="submit">Inscription</button>
+						<button class="btn nav-btn my-1" type="submit">Inscription</button>
 					</form>
 
 				{% else %}
 
 					<form class="d-flex" action="{{ path('app_login') }}">
-						<button class="btn navBtn me-2" type="submit">Mon Compte</button>
+						<button class="btn nav-btn me-2" type="submit">Mon Compte</button>
 					</form>
 					<form class="d-flex" action="{{ path('app_logout') }}">
-						<button class="btn navBtn my-1" type="submit">Se Déconnecter</button>
+						<button class="btn nav-btn my-1" type="submit">Se Déconnecter</button>
 					</form>
 
 				{% endif %}
