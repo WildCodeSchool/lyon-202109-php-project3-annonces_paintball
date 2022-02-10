@@ -11,10 +11,11 @@
 <div class="card-body">
     <h5 class="card-title advert-title">{{ advert.title }}</h5>
     <div class="card-text">
+    <p>{{ advert.brand }} </p>
         <p>{{ advert.price }} €</p>
     </div>
     <p class="text-center">
-        <a href="#" class="btn btn-primary">Voir</a>
+        <a href="{{ path('advert_show', {'id': advert.id}) }}" class="btn btn-primary">Voir</a>
     </p>
 </div>
 </div>
