@@ -60,6 +60,8 @@ class AdvertFixtures extends Fixture implements DependentFixtureInterface
         $categories = Advert::$CATEGORIES;
         $conditions = Advert::$USECONDITIONS;
         $listOfStatus = Advert::$STATUS;
+        $brand = Advert::$BRANDS;
+        $region = Advert::$REGIONS;
 
         for ($i = 0; $i < UserFixtures::NB_OF_USERS; $i++) {
             $user = $this->getReference('user_' . $i);
@@ -72,11 +74,12 @@ class AdvertFixtures extends Fixture implements DependentFixtureInterface
                 ->setCreationDate($faker->dateTime())
                 ->setUpdateDate($faker->dateTime())
                 ->setEndDate($faker->dateTime())
-                ->setBrand($faker->word())
+                ->setBrand($brand[array_rand($brand)])
                 ->setCategory($categories[array_rand($categories)])
                 ->setUseCondition($conditions[array_rand($conditions)])
                 ->setStatus($listOfStatus[array_rand($listOfStatus)])
                 ->setOwner($user)
+                ->setRegion($region[array_rand($region)])
                 ;
 
                 $advert->addPhoto((new Photo())->setUrl($this->photos[array_rand($this->photos)]));

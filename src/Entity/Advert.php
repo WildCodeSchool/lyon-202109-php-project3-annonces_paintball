@@ -164,6 +164,11 @@ class Advert
      */
     private string $status;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private string $region;
+
     public function __construct()
     {
         $this->photos = new ArrayCollection();
@@ -332,6 +337,18 @@ class Advert
     public function setStatus(string $status): self
     {
         $this->status = $status;
+
+        return $this;
+    }
+
+    public function getRegion(): ?string
+    {
+        return $this->region;
+    }
+
+    public function setRegion(string $region): self
+    {
+        $this->region = $region;
 
         return $this;
     }

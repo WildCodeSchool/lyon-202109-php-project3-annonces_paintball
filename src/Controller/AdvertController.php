@@ -51,7 +51,6 @@ class AdvertController extends AbstractController
         EntityManagerInterface $entityManager
     ): Response {
         $advert = new Advert();
-
         $advert->setStatus('En cours');
         $advert->setCreationDate(new DateTime());
         $advert->setUpdateDate(new DateTime());
@@ -70,7 +69,6 @@ class AdvertController extends AbstractController
             $advert->setOwner($user);/**@phpstan-ignore-line */
             $entityManager->persist($advert);
             $entityManager->flush();
-
             return $this->redirectToRoute('advert_add');
         }
         return $this->render('advert/new.html.twig', [
@@ -82,7 +80,7 @@ class AdvertController extends AbstractController
      */
     public function advertShow(Advert $advert): Response
     {
-        return $this->render('advert/index.html.twig', [
+        return $this->render('advert/show.html.twig', [
             'advert' => $advert,
         ]);
     }

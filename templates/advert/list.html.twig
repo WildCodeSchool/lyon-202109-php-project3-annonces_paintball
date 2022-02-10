@@ -3,8 +3,12 @@
 {% block title %}Liste des annonces{% endblock %}
 
 {% block body %}
-    <main class="container fill pt-5">
-        <h2>Liste des annonces</h2>
+    <main class="container fill pt-5 mt-4">
+    {% if app.request.getPathInfo() == "/advert/list" %}
+        <h2>Toutes les annonces</h2>
+        {% else %}
+        <h2>{{ adverts|length }} annonces correspondant à votre recherche</h2>
+        {% endif %}
         <div id="listOfAdvert" class="row">
         {% for advert in adverts %}
             <div class="col-sm-6 col-md-4">

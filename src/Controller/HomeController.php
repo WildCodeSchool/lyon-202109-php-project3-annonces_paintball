@@ -27,6 +27,7 @@ class HomeController extends AbstractController
             'categories' => Advert::$CATEGORIES,
             'regions' => Advert::$REGIONS,
             'brands' => Advert::$BRANDS,
+            'useCondition' => Advert::$USECONDITIONS,
         ]);
     }
     /**
@@ -40,9 +41,10 @@ class HomeController extends AbstractController
             $brand = $_POST['brands'];
             $description = $_POST['mot-cles'];
             $region = $_POST['region'];
-            $adverts = $advertRepository->findBySomeField($category, $brand, $description, $region);
+            $useCondition = $_POST['etat'];
+            $adverts = $advertRepository->findBySomeField($category, $brand, $description, $region, $useCondition);
         }
-        return $this->render('home/show.html.twig', [
+        return $this->render('advert/list.html.twig', [
             'adverts' => $adverts
         ]);
     }
